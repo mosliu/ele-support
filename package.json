@@ -1,0 +1,30 @@
+{
+  "name": "ELE-Support",
+  "version": "0.0.1",
+  "author": "Moses",
+  "main": "src/main.js",
+  "scripts": {
+    "clean": "rimraf dist",
+    "start": "electron .",
+    "exe32": "electron-packager . ELE-Support --platform win32 --arch ia32 --out dist/ --ignore \"(dist|node_modules/electron.*)\" --icon resources/Icon.ico",
+    "exe64": "electron-packager . ELE-Support --platform win32 --arch x64 --out dist/ --ignore \"(.idea|dist|node_modules/electron.*)\" --icon resources/Icon.ico",
+    "set32": "electron-installer-windows --src dist/ELE-Support-win32-ia32/ --dest dist/installers/ia32/ --config config.json",
+    "set64": "electron-installer-windows --src dist/ELE-Support-win32-x64/ --dest dist/installers/x64/ --config config.json",
+    "build": "npm run clean && npm run exe32 && npm run set32 && npm run exe64 && npm run set64"
+  },
+  "devDependencies": {
+    "electron": "^1.6.11",
+    "electron-installer-windows": "^0.2.0",
+    "electron-packager": "^8.7.2",
+    "electron-prebuilt": "^1.4.13",
+    "electron-rebuild": "^1.5.11",
+    "eslint": "^4.2.0",
+    "eslint-config-airbnb-base": "^11.2.0",
+    "eslint-plugin-import": "^2.7.0",
+    "rimraf": "^2.6.1"
+  },
+  "dependencies": {
+    "lodash": "^4.17.4",
+    "log4js": "^2.2.0"
+  }
+}

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link href="../css/splash.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>Starting App</title>
+    <script>
+      // You can also require other files to run in this process
+      const {ipcRenderer} = require('electron')
+//      ipcRenderer.send('iamready', 'ping')
+        ipcRenderer.on('iamready',(value)=>{
+          console.log('aloha');
+          console.dir(value);
+        })
+    </script>
+</head>
+
+<body>
+<div id="splash_container">
+    <img id="splash_loading_img" src="../images/loading.gif">
+    <span id="splash_text">Starting App</span>
+</div>
+</body>
+
+</html>
